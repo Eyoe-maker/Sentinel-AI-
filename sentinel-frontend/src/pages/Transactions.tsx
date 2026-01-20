@@ -111,7 +111,7 @@ export default function Transactions() {
 
     try {
       await createTransaction({
-        date: formData.date,
+        date: new Date(formData.date),
         amount: parseFloat(formData.amount),
         customerCountry: formData.customerCountry,
         isB2B: formData.isB2B,
