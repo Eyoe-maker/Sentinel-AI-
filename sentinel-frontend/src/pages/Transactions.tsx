@@ -142,8 +142,9 @@ export default function Transactions() {
     }
   };
 
-  const formatDate = (date: string | Date) => {
-    return new Date(date).toLocaleDateString('en-EU', {
+  const formatDate = (dateInput: string | Date) => {
+    const date = typeof dateInput === 'string' ? new Date(dateInput) : dateInput;
+    return date.toLocaleDateString('en-EU', {
       year: 'numeric',
       month: 'short',
       day: 'numeric',

@@ -7,7 +7,6 @@ import {
   ArrowUpRight,
   Euro,
   Activity,
-  FileText,
 } from 'lucide-react';
 import { EU_VAT_THRESHOLDS } from '../lib/vatEngine';
 import { fetchVATStatus, type VATStatus } from '../lib/api';
