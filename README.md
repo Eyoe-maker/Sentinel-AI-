@@ -1,2 +1,0 @@
-# OpinionFlow
-Review management software

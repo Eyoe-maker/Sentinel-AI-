@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+sentinel-backend/.env
+sentinel-frontend/.env
+
+# Database
+*.db
+*.sqlite
+
+# Uploads (keep directory structure)
+sentinel-backend/uploads/*
+!sentinel-backend/uploads/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Test coverage
+coverage/
+
+# Temp files
+*.tmp
+*.temp
+
+# Claude config (optional - remove if you want to track)
+.claude/
