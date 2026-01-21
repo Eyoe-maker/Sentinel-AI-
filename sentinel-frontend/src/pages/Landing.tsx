@@ -1,199 +1,368 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import {
-  ArrowRight,
-  Check,
-  Shield,
-  Zap,
-  BarChart3,
-  Globe2,
-  Bell,
-  FileCheck,
-  ChevronRight,
-} from 'lucide-react';
 
 export default function Landing() {
   const [email, setEmail] = useState('');
 
   return (
-    <div className="min-h-screen bg-white">
+    <div style={{ minHeight: '100vh', backgroundColor: '#ffffff', fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center space-x-8">
-            <Link to="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-violet-600 to-indigo-600 rounded-lg flex items-center justify-center">
-                <Shield className="w-5 h-5 text-white" />
+      <nav style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 50,
+        backgroundColor: 'rgba(255, 255, 255, 0.95)',
+        backdropFilter: 'blur(20px)',
+        borderBottom: '1px solid #f0f0f0',
+      }}>
+        <div style={{
+          maxWidth: '1200px',
+          margin: '0 auto',
+          padding: '0 24px',
+          height: '72px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
+            <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
+              <div style={{
+                width: '32px',
+                height: '32px',
+                background: 'linear-gradient(135deg, #635BFF 0%, #8B5CF6 100%)',
+                borderRadius: '8px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
               </div>
-              <span className="text-xl font-semibold text-gray-900">Sentinel</span>
+              <span style={{ fontSize: '20px', fontWeight: 600, color: '#0A2540' }}>Sentinel</span>
             </Link>
-            <div className="hidden md:flex items-center space-x-6">
-              <a href="#features" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">Products</a>
-              <a href="#solutions" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">Solutions</a>
-              <a href="#pricing" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">Pricing</a>
-              <a href="#docs" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">Docs</a>
+            <div style={{ display: 'flex', gap: '28px' }}>
+              {['Products', 'Solutions', 'Developers', 'Pricing'].map((item) => (
+                <a key={item} href={`#${item.toLowerCase()}`} style={{
+                  fontSize: '15px',
+                  color: '#425466',
+                  textDecoration: 'none',
+                  fontWeight: 500,
+                  transition: 'color 0.2s',
+                }}>
+                  {item}
+                </a>
+              ))}
             </div>
           </div>
-          <div className="flex items-center space-x-4">
-            <Link to="/sign-in" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+            <Link to="/sign-in" style={{
+              fontSize: '15px',
+              fontWeight: 500,
+              color: '#425466',
+              textDecoration: 'none',
+            }}>
               Sign in
             </Link>
-            <Link
-              to="/sign-up"
-              className="text-sm font-medium text-white bg-gray-900 hover:bg-gray-800 px-4 py-2 rounded-full transition-colors"
-            >
-              Start now <ChevronRight className="inline w-4 h-4" />
+            <Link to="/sign-up" style={{
+              fontSize: '15px',
+              fontWeight: 600,
+              color: '#ffffff',
+              backgroundColor: '#635BFF',
+              padding: '10px 20px',
+              borderRadius: '9999px',
+              textDecoration: 'none',
+              transition: 'all 0.2s',
+            }}>
+              Start now →
             </Link>
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        {/* Gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-violet-50 via-white to-indigo-50" />
+      <section style={{
+        position: 'relative',
+        paddingTop: '160px',
+        paddingBottom: '120px',
+        overflow: 'hidden',
+      }}>
+        {/* Gradient Background */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(180deg, #F6F9FC 0%, #FFFFFF 100%)',
+        }} />
 
-        {/* Animated gradient orbs */}
-        <div className="absolute top-20 left-1/4 w-96 h-96 bg-violet-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse" />
-        <div className="absolute top-40 right-1/4 w-96 h-96 bg-indigo-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute bottom-20 left-1/3 w-96 h-96 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse" style={{ animationDelay: '2s' }} />
+        {/* Animated Orbs */}
+        <div style={{
+          position: 'absolute',
+          top: '10%',
+          left: '15%',
+          width: '600px',
+          height: '600px',
+          background: 'radial-gradient(circle, rgba(99, 91, 255, 0.15) 0%, transparent 70%)',
+          borderRadius: '50%',
+          filter: 'blur(60px)',
+        }} />
+        <div style={{
+          position: 'absolute',
+          top: '20%',
+          right: '10%',
+          width: '500px',
+          height: '500px',
+          background: 'radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, transparent 70%)',
+          borderRadius: '50%',
+          filter: 'blur(60px)',
+        }} />
 
-        <div className="relative max-w-7xl mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="inline-flex items-center space-x-2 bg-violet-50 border border-violet-100 text-violet-700 px-4 py-1.5 rounded-full text-sm font-medium mb-8">
-                <Zap className="w-4 h-4" />
-                <span>Now supporting the 2025 EU SME VAT Scheme</span>
-              </div>
-            </motion.div>
+        <div style={{
+          position: 'relative',
+          maxWidth: '1200px',
+          margin: '0 auto',
+          padding: '0 24px',
+        }}>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}
+          >
+            {/* Badge */}
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              backgroundColor: '#F0EEFF',
+              color: '#635BFF',
+              padding: '8px 16px',
+              borderRadius: '9999px',
+              fontSize: '14px',
+              fontWeight: 600,
+              marginBottom: '32px',
+            }}>
+              <span style={{ fontSize: '16px' }}>⚡</span>
+              Now supporting the 2025 EU SME VAT Scheme
+            </div>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 tracking-tight leading-[1.1] mb-6"
-            >
+            {/* Main Headline */}
+            <h1 style={{
+              fontSize: 'clamp(40px, 6vw, 72px)',
+              fontWeight: 700,
+              color: '#0A2540',
+              lineHeight: 1.1,
+              margin: '0 0 24px 0',
+              letterSpacing: '-0.02em',
+            }}>
               Financial infrastructure for{' '}
-              <span className="bg-gradient-to-r from-violet-600 via-indigo-600 to-violet-600 bg-clip-text text-transparent">
+              <span style={{
+                background: 'linear-gradient(135deg, #635BFF 0%, #A855F7 50%, #635BFF 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}>
                 European trade
               </span>
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed"
-            >
+            {/* Subheadline */}
+            <p style={{
+              fontSize: '20px',
+              color: '#425466',
+              lineHeight: 1.6,
+              margin: '0 0 40px 0',
+              maxWidth: '600px',
+              marginLeft: 'auto',
+              marginRight: 'auto',
+            }}>
               Millions of businesses use Sentinel to monitor VAT thresholds,
               automate compliance, and expand across all 27 EU Member States.
-            </motion.p>
+            </p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8"
-            >
-              <Link
-                to="/sign-up"
-                className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-full text-base font-medium transition-all hover:scale-105 shadow-lg shadow-gray-900/10"
-              >
-                <span>Start now</span>
-                <ArrowRight className="w-4 h-4" />
+            {/* CTA Buttons */}
+            <div style={{
+              display: 'flex',
+              flexDirection: 'row',
+              gap: '16px',
+              justifyContent: 'center',
+              flexWrap: 'wrap',
+              marginBottom: '32px',
+            }}>
+              <Link to="/sign-up" style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                backgroundColor: '#0A2540',
+                color: '#ffffff',
+                padding: '16px 32px',
+                borderRadius: '9999px',
+                fontSize: '16px',
+                fontWeight: 600,
+                textDecoration: 'none',
+                transition: 'transform 0.2s, box-shadow 0.2s',
+                boxShadow: '0 4px 14px rgba(10, 37, 64, 0.35)',
+              }}>
+                Start now
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
               </Link>
-              <Link
-                to="/sign-in"
-                className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-white hover:bg-gray-50 text-gray-900 px-8 py-4 rounded-full text-base font-medium border border-gray-200 transition-all"
-              >
-                <span>Contact sales</span>
+              <Link to="/sign-in" style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                backgroundColor: '#ffffff',
+                color: '#0A2540',
+                padding: '16px 32px',
+                borderRadius: '9999px',
+                fontSize: '16px',
+                fontWeight: 600,
+                textDecoration: 'none',
+                border: '1px solid #E6E6E6',
+                transition: 'all 0.2s',
+              }}>
+                Contact sales
               </Link>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex items-center justify-center space-x-8 text-sm text-gray-500"
-            >
-              <div className="flex items-center space-x-2">
-                <Check className="w-4 h-4 text-violet-600" />
-                <span>No credit card required</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Check className="w-4 h-4 text-violet-600" />
-                <span>Free 14-day trial</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Check className="w-4 h-4 text-violet-600" />
-                <span>Cancel anytime</span>
-              </div>
-            </motion.div>
-          </div>
+            {/* Trust Indicators */}
+            <div style={{
+              display: 'flex',
+              justifyContent: 'center',
+              gap: '32px',
+              flexWrap: 'wrap',
+            }}>
+              {[
+                { icon: '✓', text: 'No credit card required' },
+                { icon: '✓', text: 'Free 14-day trial' },
+                { icon: '✓', text: 'Cancel anytime' },
+              ].map((item) => (
+                <div key={item.text} style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  fontSize: '14px',
+                  color: '#425466',
+                }}>
+                  <span style={{ color: '#635BFF', fontWeight: 700 }}>{item.icon}</span>
+                  {item.text}
+                </div>
+              ))}
+            </div>
+          </motion.div>
 
           {/* Dashboard Preview */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.5 }}
-            className="mt-20 relative"
+            transition={{ duration: 0.8, delay: 0.3 }}
+            style={{
+              marginTop: '80px',
+              perspective: '1000px',
+            }}
           >
-            <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent z-10 pointer-events-none" style={{ height: '30%', bottom: 0, top: 'auto' }} />
-            <div className="bg-gray-900 rounded-2xl p-2 shadow-2xl shadow-gray-900/20 border border-gray-800">
-              <div className="bg-white rounded-xl overflow-hidden">
-                {/* Mock browser bar */}
-                <div className="bg-gray-100 px-4 py-3 flex items-center space-x-2 border-b border-gray-200">
-                  <div className="flex space-x-1.5">
-                    <div className="w-3 h-3 rounded-full bg-red-400" />
-                    <div className="w-3 h-3 rounded-full bg-yellow-400" />
-                    <div className="w-3 h-3 rounded-full bg-green-400" />
+            <div style={{
+              background: 'linear-gradient(145deg, #1a1a2e 0%, #16213e 100%)',
+              borderRadius: '16px',
+              padding: '8px',
+              boxShadow: '0 50px 100px -20px rgba(10, 37, 64, 0.25), 0 30px 60px -30px rgba(10, 37, 64, 0.3)',
+            }}>
+              <div style={{
+                backgroundColor: '#ffffff',
+                borderRadius: '10px',
+                overflow: 'hidden',
+              }}>
+                {/* Browser Chrome */}
+                <div style={{
+                  backgroundColor: '#F8F9FA',
+                  padding: '12px 16px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  borderBottom: '1px solid #E8EAED',
+                }}>
+                  <div style={{ display: 'flex', gap: '6px' }}>
+                    <div style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#FF5F57' }} />
+                    <div style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#FEBC2E' }} />
+                    <div style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#28C840' }} />
                   </div>
-                  <div className="flex-1 mx-4">
-                    <div className="bg-white rounded-md px-3 py-1.5 text-xs text-gray-500 max-w-md mx-auto">
-                      app.sentinel.eu/dashboard
+                  <div style={{
+                    flex: 1,
+                    display: 'flex',
+                    justifyContent: 'center',
+                  }}>
+                    <div style={{
+                      backgroundColor: '#ffffff',
+                      borderRadius: '6px',
+                      padding: '6px 16px',
+                      fontSize: '13px',
+                      color: '#5F6368',
+                      maxWidth: '400px',
+                    }}>
+                      🔒 app.sentinel.eu/dashboard
                     </div>
                   </div>
                 </div>
 
-                {/* Dashboard content */}
-                <div className="p-6 bg-gray-50">
-                  <div className="grid grid-cols-3 gap-4 mb-6">
+                {/* Dashboard Content */}
+                <div style={{
+                  padding: '24px',
+                  backgroundColor: '#F6F9FC',
+                }}>
+                  {/* Stats Cards */}
+                  <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(3, 1fr)',
+                    gap: '16px',
+                    marginBottom: '20px',
+                  }}>
                     <DashboardCard
                       title="OSS Threshold"
                       value="€7,250"
                       subtitle="of €10,000 limit"
                       percentage={72.5}
-                      status="warning"
+                      color="#F59E0B"
                     />
                     <DashboardCard
                       title="SME Exemption"
                       value="€45,000"
                       subtitle="of €100,000 limit"
                       percentage={45}
-                      status="safe"
+                      color="#10B981"
                     />
                     <DashboardCard
-                      title="Countries Active"
+                      title="Active Countries"
                       value="12"
                       subtitle="EU Member States"
                       percentage={44}
-                      status="safe"
+                      color="#635BFF"
                     />
                   </div>
-                  <div className="bg-white rounded-lg border border-gray-200 p-4">
-                    <div className="flex items-center justify-between mb-4">
-                      <h3 className="font-medium text-gray-900">Recent Transactions</h3>
-                      <span className="text-sm text-violet-600">View all</span>
+
+                  {/* Transactions Table */}
+                  <div style={{
+                    backgroundColor: '#ffffff',
+                    borderRadius: '12px',
+                    border: '1px solid #E5E7EB',
+                    overflow: 'hidden',
+                  }}>
+                    <div style={{
+                      padding: '16px 20px',
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      borderBottom: '1px solid #E5E7EB',
+                    }}>
+                      <span style={{ fontWeight: 600, color: '#0A2540' }}>Recent Transactions</span>
+                      <span style={{ fontSize: '14px', color: '#635BFF', cursor: 'pointer' }}>View all →</span>
                     </div>
-                    <div className="space-y-3">
-                      <TransactionRow country="Germany" amount="€1,250" type="B2C" flag="🇩🇪" />
-                      <TransactionRow country="France" amount="€890" type="B2C" flag="🇫🇷" />
-                      <TransactionRow country="Netherlands" amount="€2,100" type="B2B" flag="🇳🇱" />
+                    <div>
+                      <TransactionRow flag="🇩🇪" country="Germany" amount="€1,250.00" type="B2C" status="Completed" />
+                      <TransactionRow flag="🇫🇷" country="France" amount="€890.00" type="B2C" status="Completed" />
+                      <TransactionRow flag="🇳🇱" country="Netherlands" amount="€2,100.00" type="B2B" status="Pending" />
                     </div>
                   </div>
                 </div>
@@ -204,60 +373,98 @@ export default function Landing() {
       </section>
 
       {/* Logos Section */}
-      <section className="py-16 border-y border-gray-100">
-        <div className="max-w-7xl mx-auto px-6">
-          <p className="text-center text-sm text-gray-500 mb-8">
+      <section style={{
+        padding: '64px 24px',
+        borderTop: '1px solid #F0F0F0',
+        borderBottom: '1px solid #F0F0F0',
+      }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <p style={{
+            textAlign: 'center',
+            fontSize: '14px',
+            color: '#8792A2',
+            marginBottom: '32px',
+            textTransform: 'uppercase',
+            letterSpacing: '0.05em',
+          }}>
             Trusted by leading companies across Europe
           </p>
-          <div className="flex items-center justify-center space-x-12 opacity-50">
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: '48px',
+            flexWrap: 'wrap',
+            opacity: 0.4,
+          }}>
             {['Shopify', 'Stripe', 'Notion', 'Figma', 'Linear', 'Vercel'].map((brand) => (
-              <div key={brand} className="text-xl font-semibold text-gray-400">{brand}</div>
+              <span key={brand} style={{
+                fontSize: '20px',
+                fontWeight: 700,
+                color: '#425466',
+              }}>
+                {brand}
+              </span>
             ))}
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-24">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+      <section id="features" style={{ padding: '120px 24px' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '64px' }}>
+            <h2 style={{
+              fontSize: '40px',
+              fontWeight: 700,
+              color: '#0A2540',
+              marginBottom: '16px',
+            }}>
               Everything you need for EU compliance
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p style={{
+              fontSize: '18px',
+              color: '#425466',
+              maxWidth: '600px',
+              margin: '0 auto',
+            }}>
               A complete toolkit to navigate VAT thresholds, manage cross-border sales,
               and stay compliant across all Member States.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: '24px',
+          }}>
             <FeatureCard
-              icon={<BarChart3 className="w-6 h-6" />}
+              icon="📊"
               title="Real-time Monitoring"
               description="Track your OSS (€10k) and SME (€100k) thresholds with live updates. Get alerts at 70%, 85%, and 95%."
             />
             <FeatureCard
-              icon={<Globe2 className="w-6 h-6" />}
+              icon="🌍"
               title="27 Member States"
               description="Full coverage of all EU countries with automatic VAT rate updates and country-specific compliance rules."
             />
             <FeatureCard
-              icon={<Bell className="w-6 h-6" />}
+              icon="🔔"
               title="Smart Alerts"
               description="Email notifications when approaching thresholds. Never miss a registration deadline or filing requirement."
             />
             <FeatureCard
-              icon={<FileCheck className="w-6 h-6" />}
+              icon="📄"
               title="Document Management"
               description="Store and organize invoices, certificates, and compliance documents with automatic OCR extraction."
             />
             <FeatureCard
-              icon={<Shield className="w-6 h-6" />}
+              icon="🛡️"
               title="GDPR Compliant"
               description="Your data is protected with enterprise-grade security. Export or delete your data anytime."
             />
             <FeatureCard
-              icon={<Zap className="w-6 h-6" />}
+              icon="⚡"
               title="Instant Reports"
               description="Generate compliance reports for any period. Perfect for audits and quarterly VAT returns."
             />
@@ -266,177 +473,261 @@ export default function Landing() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-24 bg-gray-900">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-8 text-center">
-            <StatCard value="10,000+" label="Businesses" />
-            <StatCard value="€2.5B+" label="Transactions monitored" />
-            <StatCard value="27" label="EU countries" />
-            <StatCard value="99.9%" label="Uptime" />
-          </div>
+      <section style={{
+        padding: '80px 24px',
+        backgroundColor: '#0A2540',
+      }}>
+        <div style={{
+          maxWidth: '1200px',
+          margin: '0 auto',
+          display: 'grid',
+          gridTemplateColumns: 'repeat(4, 1fr)',
+          gap: '32px',
+          textAlign: 'center',
+        }}>
+          {[
+            { value: '10,000+', label: 'Businesses' },
+            { value: '€2.5B+', label: 'Transactions monitored' },
+            { value: '27', label: 'EU countries' },
+            { value: '99.9%', label: 'Uptime' },
+          ].map((stat) => (
+            <div key={stat.label}>
+              <div style={{ fontSize: '48px', fontWeight: 700, color: '#ffffff', marginBottom: '8px' }}>
+                {stat.value}
+              </div>
+              <div style={{ fontSize: '16px', color: '#8792A2' }}>{stat.label}</div>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-24">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+      <section style={{ padding: '120px 24px' }}>
+        <div style={{
+          maxWidth: '600px',
+          margin: '0 auto',
+          textAlign: 'center',
+        }}>
+          <h2 style={{
+            fontSize: '40px',
+            fontWeight: 700,
+            color: '#0A2540',
+            marginBottom: '16px',
+          }}>
             Ready to simplify EU compliance?
           </h2>
-          <p className="text-xl text-gray-600 mb-8">
+          <p style={{
+            fontSize: '18px',
+            color: '#425466',
+            marginBottom: '32px',
+          }}>
             Start your free trial today. No credit card required.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div style={{
+            display: 'flex',
+            gap: '12px',
+            justifyContent: 'center',
+            flexWrap: 'wrap',
+          }}>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
-              className="w-full sm:w-80 px-5 py-3.5 rounded-full border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent"
+              style={{
+                width: '300px',
+                padding: '16px 24px',
+                borderRadius: '9999px',
+                border: '1px solid #E5E7EB',
+                fontSize: '16px',
+                outline: 'none',
+              }}
             />
-            <Link
-              to="/sign-up"
-              className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-gray-900 hover:bg-gray-800 text-white px-8 py-3.5 rounded-full font-medium transition-all"
-            >
-              <span>Get started</span>
-              <ArrowRight className="w-4 h-4" />
+            <Link to="/sign-up" style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              backgroundColor: '#0A2540',
+              color: '#ffffff',
+              padding: '16px 32px',
+              borderRadius: '9999px',
+              fontSize: '16px',
+              fontWeight: 600,
+              textDecoration: 'none',
+            }}>
+              Get started →
             </Link>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-50 border-t border-gray-100 py-16">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-5 gap-8 mb-12">
-            <div className="md:col-span-2">
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 bg-gradient-to-br from-violet-600 to-indigo-600 rounded-lg flex items-center justify-center">
-                  <Shield className="w-5 h-5 text-white" />
-                </div>
-                <span className="text-xl font-semibold text-gray-900">Sentinel</span>
-              </div>
-              <p className="text-gray-600 text-sm max-w-xs">
-                Financial infrastructure for European trade. Monitor, automate, and scale across the EU.
-              </p>
+      <footer style={{
+        padding: '64px 24px',
+        backgroundColor: '#F6F9FC',
+        borderTop: '1px solid #E5E7EB',
+      }}>
+        <div style={{
+          maxWidth: '1200px',
+          margin: '0 auto',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          gap: '24px',
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <div style={{
+              width: '32px',
+              height: '32px',
+              background: 'linear-gradient(135deg, #635BFF 0%, #8B5CF6 100%)',
+              borderRadius: '8px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
             </div>
-            <FooterColumn
-              title="Product"
-              links={['Features', 'Pricing', 'Integrations', 'API']}
-            />
-            <FooterColumn
-              title="Company"
-              links={['About', 'Blog', 'Careers', 'Contact']}
-            />
-            <FooterColumn
-              title="Legal"
-              links={['Privacy', 'Terms', 'Security', 'GDPR']}
-            />
+            <span style={{ fontSize: '18px', fontWeight: 600, color: '#0A2540' }}>Sentinel</span>
           </div>
-          <div className="pt-8 border-t border-gray-200 flex items-center justify-between">
-            <p className="text-sm text-gray-500">© 2025 Sentinel. All rights reserved.</p>
-            <div className="flex items-center space-x-4">
-              <Link to="/privacy" className="text-sm text-gray-500 hover:text-gray-900">Privacy</Link>
-              <Link to="/terms" className="text-sm text-gray-500 hover:text-gray-900">Terms</Link>
-            </div>
+          <div style={{ display: 'flex', gap: '32px' }}>
+            <Link to="/privacy" style={{ fontSize: '14px', color: '#425466', textDecoration: 'none' }}>Privacy</Link>
+            <Link to="/terms" style={{ fontSize: '14px', color: '#425466', textDecoration: 'none' }}>Terms</Link>
           </div>
+          <p style={{ fontSize: '14px', color: '#8792A2' }}>© 2025 Sentinel. All rights reserved.</p>
         </div>
       </footer>
     </div>
   );
 }
 
-function DashboardCard({ title, value, subtitle, percentage, status }: {
+function DashboardCard({ title, value, subtitle, percentage, color }: {
   title: string;
   value: string;
   subtitle: string;
   percentage: number;
-  status: 'safe' | 'warning' | 'danger';
+  color: string;
 }) {
-  const statusColors = {
-    safe: 'bg-emerald-500',
-    warning: 'bg-amber-500',
-    danger: 'bg-red-500',
-  };
-
   return (
-    <div className="bg-white rounded-lg border border-gray-200 p-4">
-      <div className="text-sm text-gray-500 mb-1">{title}</div>
-      <div className="text-2xl font-semibold text-gray-900 mb-1">{value}</div>
-      <div className="text-xs text-gray-400 mb-3">{subtitle}</div>
-      <div className="w-full bg-gray-100 rounded-full h-1.5">
-        <div
-          className={`h-1.5 rounded-full ${statusColors[status]}`}
-          style={{ width: `${percentage}%` }}
-        />
+    <div style={{
+      backgroundColor: '#ffffff',
+      borderRadius: '12px',
+      padding: '20px',
+      border: '1px solid #E5E7EB',
+    }}>
+      <div style={{ fontSize: '13px', color: '#6B7280', marginBottom: '8px' }}>{title}</div>
+      <div style={{ fontSize: '28px', fontWeight: 700, color: '#0A2540', marginBottom: '4px' }}>{value}</div>
+      <div style={{ fontSize: '12px', color: '#9CA3AF', marginBottom: '12px' }}>{subtitle}</div>
+      <div style={{
+        width: '100%',
+        height: '6px',
+        backgroundColor: '#E5E7EB',
+        borderRadius: '3px',
+        overflow: 'hidden',
+      }}>
+        <div style={{
+          width: `${percentage}%`,
+          height: '100%',
+          backgroundColor: color,
+          borderRadius: '3px',
+        }} />
       </div>
     </div>
   );
 }
 
-function TransactionRow({ country, amount, type, flag }: {
+function TransactionRow({ flag, country, amount, type, status }: {
+  flag: string;
   country: string;
   amount: string;
   type: string;
-  flag: string;
+  status: string;
 }) {
   return (
-    <div className="flex items-center justify-between py-2 border-b border-gray-100 last:border-0">
-      <div className="flex items-center space-x-3">
-        <span className="text-lg">{flag}</span>
-        <span className="text-sm text-gray-900">{country}</span>
+    <div style={{
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      padding: '14px 20px',
+      borderBottom: '1px solid #F3F4F6',
+    }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+        <span style={{ fontSize: '20px' }}>{flag}</span>
+        <span style={{ fontSize: '14px', fontWeight: 500, color: '#0A2540' }}>{country}</span>
       </div>
-      <div className="flex items-center space-x-4">
-        <span className="text-xs px-2 py-0.5 bg-gray-100 text-gray-600 rounded">{type}</span>
-        <span className="text-sm font-medium text-gray-900">{amount}</span>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+        <span style={{
+          fontSize: '12px',
+          padding: '4px 10px',
+          backgroundColor: type === 'B2C' ? '#EFF6FF' : '#F0FDF4',
+          color: type === 'B2C' ? '#3B82F6' : '#22C55E',
+          borderRadius: '4px',
+          fontWeight: 500,
+        }}>
+          {type}
+        </span>
+        <span style={{
+          fontSize: '12px',
+          padding: '4px 10px',
+          backgroundColor: status === 'Completed' ? '#F0FDF4' : '#FEF3C7',
+          color: status === 'Completed' ? '#22C55E' : '#F59E0B',
+          borderRadius: '4px',
+          fontWeight: 500,
+        }}>
+          {status}
+        </span>
+        <span style={{ fontSize: '14px', fontWeight: 600, color: '#0A2540', minWidth: '90px', textAlign: 'right' }}>
+          {amount}
+        </span>
       </div>
     </div>
   );
 }
 
 function FeatureCard({ icon, title, description }: {
-  icon: React.ReactNode;
+  icon: string;
   title: string;
   description: string;
 }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      className="group p-6 rounded-2xl border border-gray-100 hover:border-gray-200 hover:shadow-lg transition-all duration-300"
-    >
-      <div className="w-12 h-12 bg-violet-50 rounded-xl flex items-center justify-center text-violet-600 mb-4 group-hover:bg-violet-100 transition-colors">
+    <div style={{
+      padding: '32px',
+      backgroundColor: '#ffffff',
+      borderRadius: '16px',
+      border: '1px solid #E5E7EB',
+      transition: 'all 0.3s',
+    }}>
+      <div style={{
+        width: '48px',
+        height: '48px',
+        backgroundColor: '#F0EEFF',
+        borderRadius: '12px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: '24px',
+        marginBottom: '20px',
+      }}>
         {icon}
       </div>
-      <h3 className="text-lg font-semibold text-gray-900 mb-2">{title}</h3>
-      <p className="text-gray-600 text-sm leading-relaxed">{description}</p>
-    </motion.div>
-  );
-}
-
-function StatCard({ value, label }: { value: string; label: string }) {
-  return (
-    <div>
-      <div className="text-4xl font-bold text-white mb-2">{value}</div>
-      <div className="text-gray-400">{label}</div>
-    </div>
-  );
-}
-
-function FooterColumn({ title, links }: { title: string; links: string[] }) {
-  return (
-    <div>
-      <h4 className="font-semibold text-gray-900 mb-4">{title}</h4>
-      <ul className="space-y-2">
-        {links.map((link) => (
-          <li key={link}>
-            <a href="#" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
-              {link}
-            </a>
-          </li>
-        ))}
-      </ul>
+      <h3 style={{
+        fontSize: '18px',
+        fontWeight: 600,
+        color: '#0A2540',
+        marginBottom: '12px',
+      }}>
+        {title}
+      </h3>
+      <p style={{
+        fontSize: '15px',
+        color: '#425466',
+        lineHeight: 1.6,
+        margin: 0,
+      }}>
+        {description}
+      </p>
     </div>
   );
 }
