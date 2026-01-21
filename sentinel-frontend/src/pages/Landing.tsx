@@ -27,31 +27,34 @@ export default function Landing() {
           alignItems: 'center',
           justifyContent: 'space-between',
         }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
-            <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '40px' }}>
+            <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
               <div style={{
-                width: '32px',
-                height: '32px',
-                background: 'linear-gradient(135deg, #635BFF 0%, #8B5CF6 100%)',
-                borderRadius: '8px',
+                width: '40px',
+                height: '40px',
+                background: 'linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)',
+                borderRadius: '10px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
+                fontSize: '11px',
+                color: 'white',
+                fontWeight: 700,
+                flexDirection: 'column',
+                lineHeight: 1,
               }}>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                </svg>
+                <span style={{ fontSize: '16px' }}>⬡</span>
+                <span style={{ fontSize: '8px', marginTop: '2px' }}>SENTINEL</span>
               </div>
-              <span style={{ fontSize: '20px', fontWeight: 600, color: '#0A2540' }}>Sentinel</span>
+              <span style={{ fontSize: '20px', fontWeight: 600, color: '#1a1a2e' }}>Sentinel</span>
             </Link>
-            <div style={{ display: 'flex', gap: '28px' }}>
-              {['Products', 'Solutions', 'Developers', 'Pricing'].map((item) => (
+            <div style={{ display: 'flex', gap: '32px' }}>
+              {['Features', 'Solutions', 'Pricing'].map((item) => (
                 <a key={item} href={`#${item.toLowerCase()}`} style={{
                   fontSize: '15px',
-                  color: '#425466',
+                  color: '#64748b',
                   textDecoration: 'none',
                   fontWeight: 500,
-                  transition: 'color 0.2s',
                 }}>
                   {item}
                 </a>
@@ -59,25 +62,33 @@ export default function Landing() {
             </div>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+            <button style={{
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              padding: '8px',
+              color: '#64748b',
+            }}>
+              ☀️
+            </button>
             <Link to="/sign-in" style={{
               fontSize: '15px',
               fontWeight: 500,
-              color: '#425466',
+              color: '#1a1a2e',
               textDecoration: 'none',
             }}>
-              Sign in
+              Sign In
             </Link>
             <Link to="/sign-up" style={{
-              fontSize: '15px',
+              fontSize: '14px',
               fontWeight: 600,
               color: '#ffffff',
-              backgroundColor: '#635BFF',
+              background: 'linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)',
               padding: '10px 20px',
-              borderRadius: '9999px',
+              borderRadius: '8px',
               textDecoration: 'none',
-              transition: 'all 0.2s',
             }}>
-              Start now →
+              Start for free
             </Link>
           </div>
         </div>
@@ -86,486 +97,669 @@ export default function Landing() {
       {/* Hero Section */}
       <section style={{
         position: 'relative',
-        paddingTop: '160px',
-        paddingBottom: '120px',
+        paddingTop: '140px',
+        paddingBottom: '80px',
+        background: 'linear-gradient(180deg, #EEF2FF 0%, #F5F3FF 50%, #FFFFFF 100%)',
         overflow: 'hidden',
       }}>
-        {/* Gradient Background */}
         <div style={{
-          position: 'absolute',
-          inset: 0,
-          background: 'linear-gradient(180deg, #F6F9FC 0%, #FFFFFF 100%)',
-        }} />
-
-        {/* Animated Orbs */}
-        <div style={{
-          position: 'absolute',
-          top: '10%',
-          left: '15%',
-          width: '600px',
-          height: '600px',
-          background: 'radial-gradient(circle, rgba(99, 91, 255, 0.15) 0%, transparent 70%)',
-          borderRadius: '50%',
-          filter: 'blur(60px)',
-        }} />
-        <div style={{
-          position: 'absolute',
-          top: '20%',
-          right: '10%',
-          width: '500px',
-          height: '500px',
-          background: 'radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, transparent 70%)',
-          borderRadius: '50%',
-          filter: 'blur(60px)',
-        }} />
-
-        <div style={{
-          position: 'relative',
           maxWidth: '1200px',
           margin: '0 auto',
           padding: '0 24px',
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr',
+          gap: '60px',
+          alignItems: 'center',
         }}>
+          {/* Left side - Text */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}
           >
-            {/* Badge */}
             <div style={{
               display: 'inline-flex',
               alignItems: 'center',
               gap: '8px',
-              backgroundColor: '#F0EEFF',
-              color: '#635BFF',
-              padding: '8px 16px',
-              borderRadius: '9999px',
-              fontSize: '14px',
-              fontWeight: 600,
-              marginBottom: '32px',
+              backgroundColor: '#EEF2FF',
+              border: '1px solid #C7D2FE',
+              color: '#6366F1',
+              padding: '6px 14px',
+              borderRadius: '20px',
+              fontSize: '13px',
+              fontWeight: 500,
+              marginBottom: '24px',
             }}>
-              <span style={{ fontSize: '16px' }}>⚡</span>
+              <span>⚡</span>
               Now supporting the 2025 EU SME VAT Scheme
             </div>
 
-            {/* Main Headline */}
             <h1 style={{
-              fontSize: 'clamp(40px, 6vw, 72px)',
+              fontSize: '52px',
               fontWeight: 700,
-              color: '#0A2540',
-              lineHeight: 1.1,
-              margin: '0 0 24px 0',
-              letterSpacing: '-0.02em',
+              color: '#1a1a2e',
+              lineHeight: 1.15,
+              margin: '0 0 20px 0',
             }}>
-              Financial infrastructure for{' '}
-              <span style={{
-                background: 'linear-gradient(135deg, #635BFF 0%, #A855F7 50%, #635BFF 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-              }}>
-                European trade
-              </span>
+              Compliance<br />
+              infrastructure for<br />
+              <span style={{ color: '#6366F1' }}>European trade</span>
             </h1>
 
-            {/* Subheadline */}
             <p style={{
-              fontSize: '20px',
-              color: '#425466',
+              fontSize: '18px',
+              color: '#64748b',
               lineHeight: 1.6,
-              margin: '0 0 40px 0',
-              maxWidth: '600px',
-              marginLeft: 'auto',
-              marginRight: 'auto',
+              margin: '0 0 32px 0',
+              maxWidth: '480px',
             }}>
-              Millions of businesses use Sentinel to monitor VAT thresholds,
-              automate compliance, and expand across all 27 EU Member States.
+              Navigate the 2025 SME VAT Scheme and cross-border permits automatically.
+              Build your business across 27 Member States without the administrative friction.
             </p>
 
-            {/* CTA Buttons */}
+            {/* Email signup */}
             <div style={{
               display: 'flex',
-              flexDirection: 'row',
-              gap: '16px',
-              justifyContent: 'center',
-              flexWrap: 'wrap',
-              marginBottom: '32px',
+              gap: '12px',
+              marginBottom: '20px',
+              maxWidth: '440px',
             }}>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email"
+                style={{
+                  flex: 1,
+                  padding: '14px 18px',
+                  borderRadius: '10px',
+                  border: '1px solid #e2e8f0',
+                  fontSize: '15px',
+                  outline: 'none',
+                  backgroundColor: '#ffffff',
+                }}
+              />
               <Link to="/sign-up" style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                backgroundColor: '#0A2540',
+                background: 'linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)',
                 color: '#ffffff',
-                padding: '16px 32px',
-                borderRadius: '9999px',
-                fontSize: '16px',
+                padding: '14px 24px',
+                borderRadius: '10px',
+                fontSize: '15px',
                 fontWeight: 600,
                 textDecoration: 'none',
-                transition: 'transform 0.2s, box-shadow 0.2s',
-                boxShadow: '0 4px 14px rgba(10, 37, 64, 0.35)',
+                whiteSpace: 'nowrap',
               }}>
-                Start now
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </Link>
-              <Link to="/sign-in" style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                backgroundColor: '#ffffff',
-                color: '#0A2540',
-                padding: '16px 32px',
-                borderRadius: '9999px',
-                fontSize: '16px',
-                fontWeight: 600,
-                textDecoration: 'none',
-                border: '1px solid #E6E6E6',
-                transition: 'all 0.2s',
-              }}>
-                Contact sales
+                Start →
               </Link>
             </div>
 
-            {/* Trust Indicators */}
-            <div style={{
-              display: 'flex',
-              justifyContent: 'center',
-              gap: '32px',
-              flexWrap: 'wrap',
-            }}>
-              {[
-                { icon: '✓', text: 'No credit card required' },
-                { icon: '✓', text: 'Free 14-day trial' },
-                { icon: '✓', text: 'Cancel anytime' },
-              ].map((item) => (
-                <div key={item.text} style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  fontSize: '14px',
-                  color: '#425466',
-                }}>
-                  <span style={{ color: '#635BFF', fontWeight: 700 }}>{item.icon}</span>
-                  {item.text}
-                </div>
-              ))}
+            <div style={{ display: 'flex', gap: '24px', fontSize: '14px', color: '#64748b' }}>
+              <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <span style={{ color: '#10B981' }}>✓</span> No credit card required
+              </span>
+              <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <span style={{ color: '#10B981' }}>✓</span> 14-day free trial
+              </span>
             </div>
           </motion.div>
 
-          {/* Dashboard Preview */}
+          {/* Right side - Floating cards */}
           <motion.div
-            initial={{ opacity: 0, y: 60 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            style={{
-              marginTop: '80px',
-              perspective: '1000px',
-            }}
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            style={{ position: 'relative', height: '500px' }}
           >
+            {/* Main threshold card */}
             <div style={{
-              background: 'linear-gradient(145deg, #1a1a2e 0%, #16213e 100%)',
+              position: 'absolute',
+              top: '0',
+              left: '0',
+              backgroundColor: '#ffffff',
               borderRadius: '16px',
-              padding: '8px',
-              boxShadow: '0 50px 100px -20px rgba(10, 37, 64, 0.25), 0 30px 60px -30px rgba(10, 37, 64, 0.3)',
+              padding: '20px',
+              boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
+              width: '280px',
             }}>
-              <div style={{
-                backgroundColor: '#ffffff',
-                borderRadius: '10px',
-                overflow: 'hidden',
-              }}>
-                {/* Browser Chrome */}
-                <div style={{
-                  backgroundColor: '#F8F9FA',
-                  padding: '12px 16px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  borderBottom: '1px solid #E8EAED',
-                }}>
-                  <div style={{ display: 'flex', gap: '6px' }}>
-                    <div style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#FF5F57' }} />
-                    <div style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#FEBC2E' }} />
-                    <div style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#28C840' }} />
-                  </div>
-                  <div style={{
-                    flex: 1,
-                    display: 'flex',
-                    justifyContent: 'center',
-                  }}>
-                    <div style={{
-                      backgroundColor: '#ffffff',
-                      borderRadius: '6px',
-                      padding: '6px 16px',
-                      fontSize: '13px',
-                      color: '#5F6368',
-                      maxWidth: '400px',
-                    }}>
-                      🔒 app.sentinel.eu/dashboard
-                    </div>
-                  </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
+                <div style={{ width: '36px', height: '36px', backgroundColor: '#EEF2FF', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#6366F1' }}>📈</div>
+                <div>
+                  <div style={{ fontSize: '14px', color: '#64748b' }}>OSS Threshold</div>
+                  <div style={{ fontSize: '18px', fontWeight: 600, color: '#1a1a2e' }}>72.5% used</div>
                 </div>
+              </div>
+              <div style={{ backgroundColor: '#E5E7EB', borderRadius: '4px', height: '8px', marginBottom: '8px' }}>
+                <div style={{ backgroundColor: '#6366F1', borderRadius: '4px', height: '8px', width: '72.5%' }} />
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', color: '#64748b' }}>
+                <span>€7,250</span>
+                <span>€10,000</span>
+              </div>
+            </div>
 
-                {/* Dashboard Content */}
-                <div style={{
-                  padding: '24px',
-                  backgroundColor: '#F6F9FC',
-                }}>
-                  {/* Stats Cards */}
-                  <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(3, 1fr)',
-                    gap: '16px',
-                    marginBottom: '20px',
-                  }}>
-                    <DashboardCard
-                      title="OSS Threshold"
-                      value="€7,250"
-                      subtitle="of €10,000 limit"
-                      percentage={72.5}
-                      color="#F59E0B"
-                    />
-                    <DashboardCard
-                      title="SME Exemption"
-                      value="€45,000"
-                      subtitle="of €100,000 limit"
-                      percentage={45}
-                      color="#10B981"
-                    />
-                    <DashboardCard
-                      title="Active Countries"
-                      value="12"
-                      subtitle="EU Member States"
-                      percentage={44}
-                      color="#635BFF"
-                    />
-                  </div>
+            {/* Healthy status card */}
+            <div style={{
+              position: 'absolute',
+              top: '20px',
+              right: '20px',
+              backgroundColor: '#ffffff',
+              borderRadius: '12px',
+              padding: '12px 16px',
+              boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '10px',
+            }}>
+              <span style={{ fontSize: '13px', color: '#1a1a2e', fontWeight: 500 }}>Healthy</span>
+              <span style={{
+                backgroundColor: '#D1FAE5',
+                color: '#059669',
+                padding: '4px 10px',
+                borderRadius: '12px',
+                fontSize: '12px',
+                fontWeight: 600,
+              }}>Healthy</span>
+            </div>
 
-                  {/* Transactions Table */}
-                  <div style={{
-                    backgroundColor: '#ffffff',
-                    borderRadius: '12px',
-                    border: '1px solid #E5E7EB',
-                    overflow: 'hidden',
-                  }}>
-                    <div style={{
-                      padding: '16px 20px',
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: 'center',
-                      borderBottom: '1px solid #E5E7EB',
-                    }}>
-                      <span style={{ fontWeight: 600, color: '#0A2540' }}>Recent Transactions</span>
-                      <span style={{ fontSize: '14px', color: '#635BFF', cursor: 'pointer' }}>View all →</span>
-                    </div>
-                    <div>
-                      <TransactionRow flag="🇩🇪" country="Germany" amount="€1,250.00" type="B2C" status="Completed" />
-                      <TransactionRow flag="🇫🇷" country="France" amount="€890.00" type="B2C" status="Completed" />
-                      <TransactionRow flag="🇳🇱" country="Netherlands" amount="€2,100.00" type="B2B" status="Pending" />
-                    </div>
-                  </div>
-                </div>
+            {/* Germany card */}
+            <div style={{
+              position: 'absolute',
+              top: '160px',
+              left: '40px',
+              backgroundColor: '#ffffff',
+              borderRadius: '12px',
+              padding: '14px 18px',
+              boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '12px',
+            }}>
+              <span style={{ fontSize: '24px' }}>🇩🇪</span>
+              <div>
+                <div style={{ fontSize: '14px', fontWeight: 500, color: '#1a1a2e' }}>Germany</div>
+                <div style={{ fontSize: '12px', color: '#64748b' }}>DE VAT registered</div>
+              </div>
+              <span style={{ color: '#10B981', marginLeft: '8px' }}>✓</span>
+            </div>
+
+            {/* France card */}
+            <div style={{
+              position: 'absolute',
+              top: '240px',
+              left: '0',
+              backgroundColor: '#ffffff',
+              borderRadius: '12px',
+              padding: '14px 18px',
+              boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '12px',
+            }}>
+              <span style={{ fontSize: '24px' }}>🇫🇷</span>
+              <div>
+                <div style={{ fontSize: '14px', fontWeight: 500, color: '#1a1a2e' }}>France</div>
+                <div style={{ fontSize: '12px', color: '#64748b' }}>OSS scheme active</div>
+              </div>
+            </div>
+
+            {/* Alert card */}
+            <div style={{
+              position: 'absolute',
+              top: '180px',
+              right: '0',
+              backgroundColor: '#ffffff',
+              borderRadius: '12px',
+              padding: '14px 18px',
+              boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
+              maxWidth: '220px',
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
+                <span style={{ color: '#F59E0B' }}>🔔</span>
+                <span style={{ fontSize: '14px', fontWeight: 600, color: '#1a1a2e' }}>Threshold Alert</span>
+              </div>
+              <div style={{ fontSize: '12px', color: '#64748b' }}>
+                OSS limit at 70% - consider registration review
               </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Logos Section */}
-      <section style={{
-        padding: '64px 24px',
-        borderTop: '1px solid #F0F0F0',
-        borderBottom: '1px solid #F0F0F0',
-      }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <p style={{
-            textAlign: 'center',
-            fontSize: '14px',
-            color: '#8792A2',
-            marginBottom: '32px',
-            textTransform: 'uppercase',
-            letterSpacing: '0.05em',
-          }}>
-            Trusted by leading companies across Europe
-          </p>
-          <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            gap: '48px',
-            flexWrap: 'wrap',
-            opacity: 0.4,
-          }}>
-            {['Shopify', 'Stripe', 'Notion', 'Figma', 'Linear', 'Vercel'].map((brand) => (
-              <span key={brand} style={{
-                fontSize: '20px',
-                fontWeight: 700,
-                color: '#425466',
+      {/* Modular Solutions Section */}
+      <section id="solutions" style={{ padding: '100px 24px', backgroundColor: '#ffffff' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }}>
+          <div>
+            <div style={{ color: '#6366F1', fontSize: '14px', fontWeight: 600, marginBottom: '12px' }}>Modular solutions</div>
+            <h2 style={{ fontSize: '40px', fontWeight: 700, color: '#1a1a2e', margin: '0 0 20px 0', lineHeight: 1.2 }}>
+              A complete suite of compliance and VAT management tools
+            </h2>
+            <p style={{ fontSize: '17px', color: '#64748b', lineHeight: 1.7, margin: '0 0 32px 0' }}>
+              Reduce your administrative burden, track thresholds in real-time, and stay compliant with an integrated platform built for the complexity of EU cross-border trade.
+            </p>
+            <Link to="/sign-up" style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              background: 'linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)',
+              color: '#ffffff',
+              padding: '14px 28px',
+              borderRadius: '10px',
+              fontSize: '15px',
+              fontWeight: 600,
+              textDecoration: 'none',
+            }}>
+              Discover solutions →
+            </Link>
+          </div>
+
+          {/* Solutions grid */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
+            {[
+              { icon: '📊', label: 'Thresholds', active: true },
+              { icon: '📈', label: 'Analytics' },
+              { icon: '📄', label: 'Documents' },
+              { icon: '🔔', label: 'Alerts' },
+              { icon: '🌍', label: 'Countries' },
+              { icon: '💶', label: 'VAT Rates' },
+              { icon: '📋', label: 'Reports' },
+              { icon: '🏢', label: 'Entities' },
+              { icon: '🔒', label: 'Vault' },
+            ].map((item) => (
+              <div key={item.label} style={{
+                backgroundColor: item.active ? '#EEF2FF' : '#F8FAFC',
+                border: item.active ? '2px solid #6366F1' : '1px solid #E2E8F0',
+                borderRadius: '12px',
+                padding: '20px',
+                textAlign: 'center',
+                cursor: 'pointer',
+                transition: 'all 0.2s',
               }}>
-                {brand}
-              </span>
+                <div style={{ fontSize: '24px', marginBottom: '8px' }}>{item.icon}</div>
+                <div style={{ fontSize: '13px', fontWeight: 500, color: item.active ? '#6366F1' : '#64748b' }}>{item.label}</div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section id="features" style={{ padding: '120px 24px' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: '64px' }}>
-            <h2 style={{
-              fontSize: '40px',
-              fontWeight: 700,
-              color: '#0A2540',
-              marginBottom: '16px',
-            }}>
-              Everything you need for EU compliance
-            </h2>
-            <p style={{
-              fontSize: '18px',
-              color: '#425466',
-              maxWidth: '600px',
-              margin: '0 auto',
-            }}>
-              A complete toolkit to navigate VAT thresholds, manage cross-border sales,
-              and stay compliant across all Member States.
-            </p>
+      {/* Threshold Monitoring Section */}
+      <section style={{ padding: '100px 24px', backgroundColor: '#F8FAFC' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }}>
+          {/* Threshold card */}
+          <div style={{
+            backgroundColor: '#ffffff',
+            borderRadius: '16px',
+            padding: '24px',
+            boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
+              <div style={{ width: '40px', height: '40px', backgroundColor: '#EEF2FF', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#6366F1' }}>📊</div>
+              <div>
+                <div style={{ fontSize: '16px', fontWeight: 600, color: '#1a1a2e' }}>Threshold Sentinel</div>
+                <div style={{ fontSize: '13px', color: '#64748b' }}>Real-time monitoring</div>
+              </div>
+            </div>
+
+            {/* OSS bar */}
+            <div style={{ marginBottom: '20px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+                <span style={{ fontSize: '14px', color: '#1a1a2e' }}>OSS Threshold (€10,000)</span>
+                <span style={{ fontSize: '14px', fontWeight: 600, color: '#F59E0B' }}>72.5%</span>
+              </div>
+              <div style={{ backgroundColor: '#E5E7EB', borderRadius: '4px', height: '10px' }}>
+                <div style={{ backgroundColor: '#F59E0B', borderRadius: '4px', height: '10px', width: '72.5%' }} />
+              </div>
+              <div style={{ fontSize: '12px', color: '#64748b', marginTop: '6px' }}>€7,250 of €10,000 used</div>
+            </div>
+
+            {/* SME bar */}
+            <div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+                <span style={{ fontSize: '14px', color: '#1a1a2e' }}>SME Scheme (€100,000)</span>
+                <span style={{ fontSize: '14px', fontWeight: 600, color: '#10B981' }}>34.2%</span>
+              </div>
+              <div style={{ backgroundColor: '#E5E7EB', borderRadius: '4px', height: '10px' }}>
+                <div style={{ backgroundColor: '#10B981', borderRadius: '4px', height: '10px', width: '34.2%' }} />
+              </div>
+              <div style={{ fontSize: '12px', color: '#64748b', marginTop: '6px' }}>€34,200 of €100,000 used</div>
+            </div>
           </div>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '24px',
-          }}>
-            <FeatureCard
-              icon="📊"
-              title="Real-time Monitoring"
-              description="Track your OSS (€10k) and SME (€100k) thresholds with live updates. Get alerts at 70%, 85%, and 95%."
-            />
-            <FeatureCard
-              icon="🌍"
-              title="27 Member States"
-              description="Full coverage of all EU countries with automatic VAT rate updates and country-specific compliance rules."
-            />
-            <FeatureCard
-              icon="🔔"
-              title="Smart Alerts"
-              description="Email notifications when approaching thresholds. Never miss a registration deadline or filing requirement."
-            />
-            <FeatureCard
-              icon="📄"
-              title="Document Management"
-              description="Store and organize invoices, certificates, and compliance documents with automatic OCR extraction."
-            />
-            <FeatureCard
-              icon="🛡️"
-              title="GDPR Compliant"
-              description="Your data is protected with enterprise-grade security. Export or delete your data anytime."
-            />
-            <FeatureCard
-              icon="⚡"
-              title="Instant Reports"
-              description="Generate compliance reports for any period. Perfect for audits and quarterly VAT returns."
-            />
+          {/* Text */}
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
+              <span style={{ color: '#6366F1' }}>📊</span>
+              <span style={{ color: '#6366F1', fontSize: '14px', fontWeight: 600 }}>Threshold Monitoring</span>
+            </div>
+            <h2 style={{ fontSize: '36px', fontWeight: 700, color: '#1a1a2e', margin: '0 0 20px 0', lineHeight: 1.2 }}>
+              Never cross a threshold unprepared
+            </h2>
+            <p style={{ fontSize: '17px', color: '#64748b', lineHeight: 1.7, margin: '0 0 28px 0' }}>
+              Monitor OSS and SME scheme limits in real-time. Get proactive alerts at 70% and 90% so you can plan registrations before deadlines hit.
+            </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+              {[
+                'Real-time threshold calculations across all EU markets',
+                'Automated alerts before critical limits',
+                'Deterministic VAT calculations - no AI guesswork',
+              ].map((item) => (
+                <div key={item} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '15px', color: '#1a1a2e' }}>
+                  <span style={{ color: '#10B981' }}>✓</span>
+                  {item}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section style={{
-        padding: '80px 24px',
-        backgroundColor: '#0A2540',
-      }}>
-        <div style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
-          gap: '32px',
-          textAlign: 'center',
-        }}>
-          {[
-            { value: '10,000+', label: 'Businesses' },
-            { value: '€2.5B+', label: 'Transactions monitored' },
-            { value: '27', label: 'EU countries' },
-            { value: '99.9%', label: 'Uptime' },
-          ].map((stat) => (
-            <div key={stat.label}>
-              <div style={{ fontSize: '48px', fontWeight: 700, color: '#ffffff', marginBottom: '8px' }}>
-                {stat.value}
-              </div>
-              <div style={{ fontSize: '16px', color: '#8792A2' }}>{stat.label}</div>
+      {/* Browser Operator Section */}
+      <section style={{ padding: '100px 24px', backgroundColor: '#ffffff' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }}>
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
+              <span style={{ backgroundColor: '#D1FAE5', padding: '6px', borderRadius: '8px' }}>🤖</span>
+              <span style={{ color: '#10B981', fontSize: '14px', fontWeight: 600 }}>Browser Operator</span>
             </div>
-          ))}
+            <h2 style={{ fontSize: '36px', fontWeight: 700, color: '#1a1a2e', margin: '0 0 20px 0', lineHeight: 1.2 }}>
+              Automate tax portal submissions
+            </h2>
+            <p style={{ fontSize: '17px', color: '#64748b', lineHeight: 1.7, margin: '0 0 28px 0' }}>
+              Our browser agent navigates French SIPSI declarations and EU tax portals automatically. Submit forms in languages you don't speak, with complete audit trails.
+            </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+              {[
+                'Automated form filling with extracted data',
+                'Multi-language portal support via DeepL',
+                'Complete submission records for audits',
+              ].map((item) => (
+                <div key={item} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '15px', color: '#1a1a2e' }}>
+                  <span style={{ color: '#10B981' }}>✓</span>
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Terminal preview */}
+          <div style={{
+            backgroundColor: '#1a1a2e',
+            borderRadius: '16px',
+            padding: '24px',
+            boxShadow: '0 20px 40px rgba(0,0,0,0.2)',
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
+              <div style={{ width: '36px', height: '36px', backgroundColor: 'rgba(255,255,255,0.1)', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>🤖</div>
+              <div>
+                <div style={{ fontSize: '14px', fontWeight: 600, color: '#ffffff' }}>Browser Operator</div>
+                <div style={{ fontSize: '12px', color: '#64748b' }}>Automated submissions</div>
+              </div>
+            </div>
+            <div style={{ fontFamily: 'monospace', fontSize: '13px', lineHeight: 1.8 }}>
+              <div style={{ color: '#10B981' }}>Navigating to sipsi.travail.gouv.fr</div>
+              <div style={{ color: '#10B981' }}>Filling form Declaration A1...</div>
+              <div style={{ color: '#10B981' }}>Submitting with certificate...</div>
+              <div style={{ color: '#10B981', marginTop: '8px' }}>✓ Submission confirmed - ID: FR-2025-847291</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Integrations Section */}
+      <section style={{ padding: '100px 24px', backgroundColor: '#F8FAFC' }}>
+        <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
+          <h2 style={{ fontSize: '36px', fontWeight: 700, color: '#1a1a2e', margin: '0 0 16px 0' }}>
+            Connect your existing stack
+          </h2>
+          <p style={{ fontSize: '17px', color: '#64748b', margin: '0 0 48px 0' }}>
+            Sentinel integrates with your accounting and banking tools
+          </p>
+
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', marginBottom: '32px' }}>
+            {[
+              { letter: 'D', name: 'DATEV', desc: 'Accounting', color: '#6366F1' },
+              { letter: 'P', name: 'Plaid', desc: 'Banking', color: '#10B981' },
+              { letter: 'O', name: 'Odoo', desc: 'ERP', color: '#A855F7' },
+              { letter: 'D', name: 'DeepL', desc: 'Translation', color: '#F59E0B' },
+            ].map((item) => (
+              <div key={item.name} style={{
+                backgroundColor: '#ffffff',
+                border: '1px solid #E2E8F0',
+                borderRadius: '12px',
+                padding: '24px 32px',
+                textAlign: 'center',
+              }}>
+                <div style={{
+                  width: '48px',
+                  height: '48px',
+                  backgroundColor: `${item.color}15`,
+                  color: item.color,
+                  borderRadius: '12px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '20px',
+                  fontWeight: 700,
+                  margin: '0 auto 12px auto',
+                }}>
+                  {item.letter}
+                </div>
+                <div style={{ fontSize: '15px', fontWeight: 600, color: '#1a1a2e' }}>{item.name}</div>
+                <div style={{ fontSize: '13px', color: '#64748b' }}>{item.desc}</div>
+              </div>
+            ))}
+          </div>
+
+          <p style={{ fontSize: '14px', color: '#64748b' }}>
+            More integrations coming soon. <a href="#" style={{ color: '#6366F1', textDecoration: 'none' }}>View all integrations</a>
+          </p>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section id="pricing" style={{ padding: '100px 24px', backgroundColor: '#ffffff' }}>
+        <div style={{ maxWidth: '1100px', margin: '0 auto', textAlign: 'center' }}>
+          <h2 style={{ fontSize: '40px', fontWeight: 700, color: '#1a1a2e', margin: '0 0 16px 0' }}>
+            Simple, transparent pricing
+          </h2>
+          <p style={{ fontSize: '17px', color: '#64748b', margin: '0 0 48px 0' }}>
+            Choose the plan that fits your business needs
+          </p>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }}>
+            {/* Starter */}
+            <div style={{
+              backgroundColor: '#ffffff',
+              border: '1px solid #E2E8F0',
+              borderRadius: '16px',
+              padding: '32px',
+              textAlign: 'left',
+            }}>
+              <div style={{ fontSize: '14px', fontWeight: 600, color: '#64748b', marginBottom: '8px' }}>Starter</div>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: '4px', marginBottom: '8px' }}>
+                <span style={{ fontSize: '48px', fontWeight: 700, color: '#1a1a2e' }}>€99</span>
+                <span style={{ fontSize: '16px', color: '#64748b' }}>/month</span>
+              </div>
+              <p style={{ fontSize: '14px', color: '#64748b', marginBottom: '24px' }}>Perfect for small businesses starting cross-border sales</p>
+
+              <Link to="/sign-up" style={{
+                display: 'block',
+                textAlign: 'center',
+                padding: '12px',
+                backgroundColor: '#F1F5F9',
+                color: '#1a1a2e',
+                borderRadius: '8px',
+                textDecoration: 'none',
+                fontWeight: 600,
+                marginBottom: '24px',
+              }}>
+                Get started
+              </Link>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                {[
+                  'OSS threshold tracking',
+                  'Up to 500 transactions/month',
+                  'Email alerts at 70% & 90%',
+                  'Basic reporting',
+                  'Email support',
+                ].map((item) => (
+                  <div key={item} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14px', color: '#1a1a2e' }}>
+                    <span style={{ color: '#10B981' }}>✓</span>
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Professional - Highlighted */}
+            <div style={{
+              backgroundColor: '#ffffff',
+              border: '2px solid #6366F1',
+              borderRadius: '16px',
+              padding: '32px',
+              textAlign: 'left',
+              position: 'relative',
+              boxShadow: '0 20px 40px rgba(99, 102, 241, 0.15)',
+            }}>
+              <div style={{
+                position: 'absolute',
+                top: '-12px',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                backgroundColor: '#6366F1',
+                color: '#ffffff',
+                padding: '4px 16px',
+                borderRadius: '12px',
+                fontSize: '12px',
+                fontWeight: 600,
+              }}>
+                Most Popular
+              </div>
+              <div style={{ fontSize: '14px', fontWeight: 600, color: '#6366F1', marginBottom: '8px' }}>Professional</div>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: '4px', marginBottom: '8px' }}>
+                <span style={{ fontSize: '48px', fontWeight: 700, color: '#1a1a2e' }}>€299</span>
+                <span style={{ fontSize: '16px', color: '#64748b' }}>/month</span>
+              </div>
+              <p style={{ fontSize: '14px', color: '#64748b', marginBottom: '24px' }}>For growing businesses with multi-country operations</p>
+
+              <Link to="/sign-up" style={{
+                display: 'block',
+                textAlign: 'center',
+                padding: '12px',
+                background: 'linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)',
+                color: '#ffffff',
+                borderRadius: '8px',
+                textDecoration: 'none',
+                fontWeight: 600,
+                marginBottom: '24px',
+              }}>
+                Get started
+              </Link>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                {[
+                  'OSS & SME threshold tracking',
+                  'Unlimited transactions',
+                  'Real-time compliance alerts',
+                  'Browser Operator automation',
+                  'Document vault & OCR',
+                  'DATEV & Plaid integrations',
+                  'Priority support',
+                ].map((item) => (
+                  <div key={item} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14px', color: '#1a1a2e' }}>
+                    <span style={{ color: '#10B981' }}>✓</span>
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Enterprise */}
+            <div style={{
+              backgroundColor: '#ffffff',
+              border: '1px solid #E2E8F0',
+              borderRadius: '16px',
+              padding: '32px',
+              textAlign: 'left',
+            }}>
+              <div style={{ fontSize: '14px', fontWeight: 600, color: '#64748b', marginBottom: '8px' }}>Enterprise</div>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: '4px', marginBottom: '8px' }}>
+                <span style={{ fontSize: '48px', fontWeight: 700, color: '#1a1a2e' }}>Custom</span>
+              </div>
+              <p style={{ fontSize: '14px', color: '#64748b', marginBottom: '24px' }}>For large organizations with complex compliance needs</p>
+
+              <Link to="/sign-up" style={{
+                display: 'block',
+                textAlign: 'center',
+                padding: '12px',
+                backgroundColor: '#1a1a2e',
+                color: '#ffffff',
+                borderRadius: '8px',
+                textDecoration: 'none',
+                fontWeight: 600,
+                marginBottom: '24px',
+              }}>
+                Contact sales
+              </Link>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                {[
+                  'Everything in Professional',
+                  'Multiple legal entities',
+                  'Custom integrations',
+                  'Dedicated account manager',
+                  'SLA guarantee',
+                  'On-premise deployment option',
+                  'Compliance consulting',
+                ].map((item) => (
+                  <div key={item} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14px', color: '#1a1a2e' }}>
+                    <span style={{ color: '#10B981' }}>✓</span>
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section style={{ padding: '120px 24px' }}>
-        <div style={{
-          maxWidth: '600px',
-          margin: '0 auto',
-          textAlign: 'center',
-        }}>
-          <h2 style={{
-            fontSize: '40px',
-            fontWeight: 700,
-            color: '#0A2540',
-            marginBottom: '16px',
-          }}>
+      <section style={{
+        padding: '80px 24px',
+        background: 'linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)',
+      }}>
+        <div style={{ maxWidth: '600px', margin: '0 auto', textAlign: 'center' }}>
+          <h2 style={{ fontSize: '36px', fontWeight: 700, color: '#ffffff', margin: '0 0 16px 0' }}>
             Ready to simplify EU compliance?
           </h2>
-          <p style={{
-            fontSize: '18px',
-            color: '#425466',
-            marginBottom: '32px',
-          }}>
-            Start your free trial today. No credit card required.
+          <p style={{ fontSize: '17px', color: 'rgba(255,255,255,0.9)', margin: '0 0 32px 0' }}>
+            Join thousands of businesses using Sentinel to navigate cross-border trade.
           </p>
-          <div style={{
-            display: 'flex',
-            gap: '12px',
-            justifyContent: 'center',
-            flexWrap: 'wrap',
+          <Link to="/sign-up" style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            backgroundColor: '#ffffff',
+            color: '#6366F1',
+            padding: '16px 32px',
+            borderRadius: '10px',
+            fontSize: '16px',
+            fontWeight: 600,
+            textDecoration: 'none',
           }}>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email"
-              style={{
-                width: '300px',
-                padding: '16px 24px',
-                borderRadius: '9999px',
-                border: '1px solid #E5E7EB',
-                fontSize: '16px',
-                outline: 'none',
-              }}
-            />
-            <Link to="/sign-up" style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '8px',
-              backgroundColor: '#0A2540',
-              color: '#ffffff',
-              padding: '16px 32px',
-              borderRadius: '9999px',
-              fontSize: '16px',
-              fontWeight: 600,
-              textDecoration: 'none',
-            }}>
-              Get started →
-            </Link>
-          </div>
+            Start your free trial →
+          </Link>
         </div>
       </section>
 
       {/* Footer */}
       <footer style={{
-        padding: '64px 24px',
-        backgroundColor: '#F6F9FC',
-        borderTop: '1px solid #E5E7EB',
+        padding: '48px 24px',
+        backgroundColor: '#1a1a2e',
       }}>
         <div style={{
           maxWidth: '1200px',
@@ -573,161 +767,30 @@ export default function Landing() {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          flexWrap: 'wrap',
-          gap: '24px',
         }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             <div style={{
               width: '32px',
               height: '32px',
-              background: 'linear-gradient(135deg, #635BFF 0%, #8B5CF6 100%)',
+              background: 'linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)',
               borderRadius: '8px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
+              fontSize: '14px',
+              color: 'white',
             }}>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-              </svg>
+              ⬡
             </div>
-            <span style={{ fontSize: '18px', fontWeight: 600, color: '#0A2540' }}>Sentinel</span>
+            <span style={{ fontSize: '16px', fontWeight: 600, color: '#ffffff' }}>Sentinel</span>
           </div>
           <div style={{ display: 'flex', gap: '32px' }}>
-            <Link to="/privacy" style={{ fontSize: '14px', color: '#425466', textDecoration: 'none' }}>Privacy</Link>
-            <Link to="/terms" style={{ fontSize: '14px', color: '#425466', textDecoration: 'none' }}>Terms</Link>
+            <Link to="/privacy" style={{ fontSize: '14px', color: '#64748b', textDecoration: 'none' }}>Privacy</Link>
+            <Link to="/terms" style={{ fontSize: '14px', color: '#64748b', textDecoration: 'none' }}>Terms</Link>
           </div>
-          <p style={{ fontSize: '14px', color: '#8792A2' }}>© 2025 Sentinel. All rights reserved.</p>
+          <p style={{ fontSize: '14px', color: '#64748b' }}>© 2025 Sentinel. All rights reserved.</p>
         </div>
       </footer>
-    </div>
-  );
-}
-
-function DashboardCard({ title, value, subtitle, percentage, color }: {
-  title: string;
-  value: string;
-  subtitle: string;
-  percentage: number;
-  color: string;
-}) {
-  return (
-    <div style={{
-      backgroundColor: '#ffffff',
-      borderRadius: '12px',
-      padding: '20px',
-      border: '1px solid #E5E7EB',
-    }}>
-      <div style={{ fontSize: '13px', color: '#6B7280', marginBottom: '8px' }}>{title}</div>
-      <div style={{ fontSize: '28px', fontWeight: 700, color: '#0A2540', marginBottom: '4px' }}>{value}</div>
-      <div style={{ fontSize: '12px', color: '#9CA3AF', marginBottom: '12px' }}>{subtitle}</div>
-      <div style={{
-        width: '100%',
-        height: '6px',
-        backgroundColor: '#E5E7EB',
-        borderRadius: '3px',
-        overflow: 'hidden',
-      }}>
-        <div style={{
-          width: `${percentage}%`,
-          height: '100%',
-          backgroundColor: color,
-          borderRadius: '3px',
-        }} />
-      </div>
-    </div>
-  );
-}
-
-function TransactionRow({ flag, country, amount, type, status }: {
-  flag: string;
-  country: string;
-  amount: string;
-  type: string;
-  status: string;
-}) {
-  return (
-    <div style={{
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      padding: '14px 20px',
-      borderBottom: '1px solid #F3F4F6',
-    }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-        <span style={{ fontSize: '20px' }}>{flag}</span>
-        <span style={{ fontSize: '14px', fontWeight: 500, color: '#0A2540' }}>{country}</span>
-      </div>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-        <span style={{
-          fontSize: '12px',
-          padding: '4px 10px',
-          backgroundColor: type === 'B2C' ? '#EFF6FF' : '#F0FDF4',
-          color: type === 'B2C' ? '#3B82F6' : '#22C55E',
-          borderRadius: '4px',
-          fontWeight: 500,
-        }}>
-          {type}
-        </span>
-        <span style={{
-          fontSize: '12px',
-          padding: '4px 10px',
-          backgroundColor: status === 'Completed' ? '#F0FDF4' : '#FEF3C7',
-          color: status === 'Completed' ? '#22C55E' : '#F59E0B',
-          borderRadius: '4px',
-          fontWeight: 500,
-        }}>
-          {status}
-        </span>
-        <span style={{ fontSize: '14px', fontWeight: 600, color: '#0A2540', minWidth: '90px', textAlign: 'right' }}>
-          {amount}
-        </span>
-      </div>
-    </div>
-  );
-}
-
-function FeatureCard({ icon, title, description }: {
-  icon: string;
-  title: string;
-  description: string;
-}) {
-  return (
-    <div style={{
-      padding: '32px',
-      backgroundColor: '#ffffff',
-      borderRadius: '16px',
-      border: '1px solid #E5E7EB',
-      transition: 'all 0.3s',
-    }}>
-      <div style={{
-        width: '48px',
-        height: '48px',
-        backgroundColor: '#F0EEFF',
-        borderRadius: '12px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: '24px',
-        marginBottom: '20px',
-      }}>
-        {icon}
-      </div>
-      <h3 style={{
-        fontSize: '18px',
-        fontWeight: 600,
-        color: '#0A2540',
-        marginBottom: '12px',
-      }}>
-        {title}
-      </h3>
-      <p style={{
-        fontSize: '15px',
-        color: '#425466',
-        lineHeight: 1.6,
-        margin: 0,
-      }}>
-        {description}
-      </p>
     </div>
   );
 }
